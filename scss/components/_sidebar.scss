@@ -12,7 +12,7 @@
   }
 
   .sidebar-scroll {
-    @include flex(column, flex-start, flex-start, $gap:0);
+    @include flex(column, flex-start, flex-start, $gap:$none);
     flex: 1; 
     width: $full;
     overflow-y: auto; 
@@ -26,11 +26,12 @@
     font-size: $text2;
     width: $full;
     margin-bottom: $m2;
+    
 
     .sidebar-heading{
       margin:$p1 0;
       font-size: $heading;
-      font-weight: 600;
+      font-weight: $w600;
     }
 
     .sidebar-icon{
@@ -39,12 +40,12 @@
 
   }
   .sidebar-mid {
-    @include flex(column, flex-start, flex-start, $gap:0px);
+    @include flex(column, flex-start, flex-start, $gap:$none);
     width: $full;
 
     .sidebar-button {
       padding:0.35rem $p1;
-      @include flex(row,flex-start ,$gap:1rem);
+      @include flex(row,flex-start ,$gap:$gap1);
       width:$full;
       @include button;
     }
@@ -83,7 +84,7 @@
       .sidebar-profile-pic{
         width:$profile;
         height:$profile;
-        border-radius: 50%;
+        border-radius: $half;
     }
   }
     .sidebar-profile-offer-btn{
@@ -91,9 +92,9 @@
       @include flex;
       gap:$p2;
       width:$ninety;
-      margin:0 auto;
+      margin:$none auto;
       margin-bottom: $m1;
-      border:1px solid lightgray;
+      border:1px solid $lightgrey;
       @include user-padding;
       border-radius: $round2;
     }

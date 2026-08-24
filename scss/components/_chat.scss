@@ -18,10 +18,10 @@
       font-size: $text1;
 
       .blue-icon {
-      filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%);
+        filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%);
       }
 
-      .blue-text{
+      .blue-text {
         color: $blue;
         font-weight: $w600;
       }
@@ -29,86 +29,116 @@
   }
 
   .main-chat {
-    @include flex(column, center, center);
+    @include flex(column, center, center, $gap:$gap2);
     flex: 1;
     width: $full;
     padding: $p0 $p2;
-  }
+    overflow: hidden;
 
-  .main-empty {
-    @include flex(column, center, center, $gap:$gap2);
+    .chat-messages {
+    display: none;
+    flex-direction: column;
+    gap: $p2;
+    flex: 1;
     width: $full;
     max-width: $input;
-
-    .main-empty-heading {
-      font-weight: $w400;
-      font-size: $text3;
-    }
+    margin: $none auto;
+    overflow-y: auto;
+    padding: $p2 $none;
   }
 
-  .composer {
-    @include flex(row, flex-start, center, $gap:$gap1);
-    width: $full;
-    padding: $p2;
-    border: 1px solid lightgray;
-    border-radius: $round3;
-    @include shadow($shadow1);
+    .main-empty {
+      @include flex(column, center, center, $gap:$gap2);
+      flex: 1;
+      width: $full;
+      max-width: $input;
+      margin: $none auto;
 
-    .composer-icon-btn {
-      @include button;
-      @include flex(row, center, center, $gap:$none);
-      padding: $p0;
+      .main-empty-heading {
+        font-weight: $w400;
+        font-size: $text3;
+      }
+
+      .main-suggestions {
+        @include flex(column, flex-start, flex-start, $gap:$gap5);
+        width: $full;
+
+        .suggestion-button {
+          @include button;
+          @include flex(row, flex-start, center, $gap:$gap1);
+          @include user-padding;
+          @include text-grey;
+          width: $full;
+          font-weight: $w400;
+        }
+      }
     }
 
-    .composer-input {
-      flex: 1;
-      border: $none;
-      outline: $none;
-      font-family: inherit;
-      font-size: $text1;
-      background: transparent;
+    .composer {
+      @include flex(row, flex-start, center, $gap:$gap1);
+      width: $full;
+      max-width: $input;
+      margin: $none auto;
+      padding: $p2;
+      border: 1px solid $lightgrey;
+      border-radius: $round3;
+      @include shadow($shadow1);
 
-      &::placeholder {
+      .composer-icon-btn {
+        @include button;
+        @include flex(row, center, center, $gap:$none);
+        padding: $p0;
+      }
+
+      .composer-input {
+        flex: 1;
+        border: $none;
+        outline: $none;
+        font-family: inherit;
+        font-size: $text1;
+        background: transparent;
+
+        &::placeholder {
+          @include text-grey;
+          font-weight: $w400;
+        }
+      }
+
+      .composer-think-btn {
+        @include button;
+        @include flex(row, center, center);
+        @include user-padding;
         @include text-grey;
         font-weight: $w400;
+        border-radius: $round2;
+      }
+
+      .composer-send-btn {
+        @include flex(row, center, center, $gap:$none);
+        width: $tworem;
+        height: $tworem;
+        border-radius: $half;
+        border: $none;
+        background-color: $blue2;
+
+        .icon-white {
+          filter: invert(100%);
+        }
       }
     }
+      &.active {
+    justify-content: flex-start;
+    align-items: stretch;
 
-    .composer-think-btn {
-      @include button;
-      @include flex(row, center, center);
-      @include user-padding;
-      @include text-grey;
-      font-weight: $w400;
-      border-radius: $round2;
+    .chat-messages {
+      display: flex;
+      flex: 1;
     }
 
-    .composer-send-btn {
-      @include flex(row, center, center, $gap:$none);
-      width: $tworem;
-      height: $tworem;
-      border-radius: $half;
-      border: $none;
-      background-color: $blue2;
-
-      .icon-white {
-        filter: invert(100%);
-      }
+    .main-empty {
+      display: none;
     }
   }
-
-  .main-suggestions {
-    @include flex(column, flex-start, flex-start, $gap:0.2rem);
-    width: $full;
-
-    .suggestion-button {
-      @include button;
-      @include flex(row, flex-start, center, $gap:0.8rem);
-      @include user-padding;
-      @include text-grey;
-      width: $full;
-      font-weight: $w400;
-    }
   }
 
   @include response(mobile) {
@@ -118,5 +148,32 @@
     .composer-think-btn span {
       display: none;
     }
+  }
+}
+
+.message {
+  padding: $p2 $p3;
+  border-radius: $round1;
+  max-width: 70%;
+  font-size: $text1;
+  line-height: 1.5;
+}
+
+.message-user {
+  align-self: flex-end;
+  background-color: $chatblue;
+}
+
+.message-assistant {
+  align-self: flex-start;
+  background-color: transparent;
+
+  .code-block {
+    background-color: $grey;
+    padding: $p2;
+    border-radius: $round0;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-top: $p2;
   }
 }
