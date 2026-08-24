@@ -26,15 +26,17 @@
     }
   }
 
-  @mixin button($bg:#efefef){
+  @mixin button($bg:$buttons){
     background-color: transparent;
     border-radius: $round0;
     border: none;
     font-family: inherit;
+
     &:hover{
         background-color:$bg;
         transition: all;
         transition-duration: 300ms;
+        cursor: pointer;
       }
   }
 

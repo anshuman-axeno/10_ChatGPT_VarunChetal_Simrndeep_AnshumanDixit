@@ -17,6 +17,10 @@
       padding: $p0 $p1;
       font-size: $text1;
 
+      .blue-icon {
+      filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%);
+      }
+
       .blue-text{
         color: $blue;
         font-weight: $w600;
@@ -43,7 +47,7 @@
   }
 
   .composer {
-    @include flex(row, flex-start, center, $gap:0.6rem);
+    @include flex(row, flex-start, center, $gap:$gap1);
     width: $full;
     padding: $p2;
     border: 1px solid lightgray;
@@ -58,8 +62,8 @@
 
     .composer-input {
       flex: 1;
-      border: none;
-      outline: none;
+      border: $none;
+      outline: $none;
       font-family: inherit;
       font-size: $text1;
       background: transparent;
@@ -81,12 +85,12 @@
 
     .composer-send-btn {
       @include flex(row, center, center, $gap:$none);
-      width: $profile;
-      height: $profile;
-      border-radius: 50%;
+      width: $tworem;
+      height: $tworem;
+      border-radius: $half;
       border: $none;
       background-color: $blue2;
-      
+
       .icon-white {
         filter: invert(100%);
       }

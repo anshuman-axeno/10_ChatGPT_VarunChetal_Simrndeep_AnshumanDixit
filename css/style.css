@@ -93,6 +93,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .sidebar .sidebar-recents {
   display: flex;
@@ -120,6 +121,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .sidebar .sidebar-recents .sidebar-recents-button {
   padding: 6px 10px 6px 8px;
@@ -146,6 +148,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .sidebar .sidebar-profile .sidebar-profile-btn {
   display: flex;
@@ -171,6 +174,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .sidebar .sidebar-profile .sidebar-profile-offer-btn {
   display: flex;
@@ -215,6 +219,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .main .main-top .main-top-button {
   display: flex;
@@ -224,6 +229,9 @@ body .icon-grey {
   gap: 0.5rem;
   padding: 0rem 0.25rem;
   font-size: 14px;
+}
+.main .main-top .main-top-button .blue-icon {
+  filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%);
 }
 .main .main-top .main-top-button .blue-text {
   color: #4a7ae0;
@@ -257,7 +265,7 @@ body .icon-grey {
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1rem;
   width: 100%;
   padding: 0.5rem;
   border: 1px solid lightgray;
@@ -274,6 +282,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .main .composer .composer-icon-btn {
   display: flex;
@@ -285,8 +294,8 @@ body .icon-grey {
 }
 .main .composer .composer-input {
   flex: 1;
-  border: none;
-  outline: none;
+  border: 0;
+  outline: 0;
   font-family: inherit;
   font-size: 14px;
   background: transparent;
@@ -307,6 +316,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .main .composer .composer-think-btn {
   display: flex;
@@ -327,8 +337,8 @@ body .icon-grey {
   flex-direction: row;
   align-items: center;
   gap: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   border: 0;
   background-color: #a8c7fa;
@@ -354,6 +364,7 @@ body .icon-grey {
   background-color: #efefef;
   transition: all;
   transition-duration: 300ms;
+  cursor: pointer;
 }
 .main .main-suggestions .suggestion-button {
   display: flex;
