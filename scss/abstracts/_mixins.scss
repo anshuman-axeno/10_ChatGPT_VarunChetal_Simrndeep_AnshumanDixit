@@ -1,0 +1,53 @@
+@use 'variables' as *;
+
+@mixin flex(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $gap: 1rem )
+  {
+    display: flex;
+    justify-content: $justify;
+    flex-direction: $direction;
+    align-items: $align;
+    gap: $gap;
+  }
+
+  @mixin response($breakpoint){
+    @if $breakpoint==mobile{
+      @media (max-width: $mobile){
+        @content;
+      }
+    }
+    @else if $breakpoint==tablet{
+      @media (max-width:$tablet){
+        @content;
+      }
+    }
+  }
+
+  @mixin button($bg:#efefef){
+    background-color: transparent;
+    border-radius: $round0;
+    border: none;
+    font-family: inherit;
+    &:hover{
+        background-color:$bg;
+        transition: all;
+        transition-duration: 300ms;
+      }
+  }
+
+  @mixin user-padding(){
+    padding: 6px 10px 6px 8px;
+  }
+
+  @mixin text-grey{
+    color:$grey;
+    font-size: $text1;
+    font-weight: 600;
+  }
+
+  @mixin shadow($blur:1rem, $spread:2px, $color:rgba(0,0,0,0.25)){
+    box-shadow: 0 0 $blur $spread $color ;
+  }

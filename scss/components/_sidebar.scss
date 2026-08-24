@@ -1,0 +1,102 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.sidebar {
+  @include flex(column, flex-start, flex-start);
+  font-size: $text1;
+  padding-left: $p3;
+  width: $full;
+  height: 100vh;
+  .icon{
+    transform: scale($ninety);
+  }
+
+  .sidebar-scroll {
+    @include flex(column, flex-start, flex-start, $gap:0);
+    flex: 1; 
+    width: $full;
+    overflow-y: auto; 
+    min-height: $none; 
+  }
+
+  .sidebar-top {
+    @include flex(row, space-between);
+    padding: $p0 $p1;
+    padding-top: $p3;
+    font-size: $text2;
+    width: $full;
+    margin-bottom: $m2;
+
+    .sidebar-heading{
+      margin:$p1 0;
+      font-size: $heading;
+      font-weight: 600;
+    }
+
+    .sidebar-icon{
+      padding-left: $p2;
+    }
+
+  }
+  .sidebar-mid {
+    @include flex(column, flex-start, flex-start, $gap:0px);
+    width: $full;
+
+    .sidebar-button {
+      padding:0.35rem $p1;
+      @include flex(row,flex-start ,$gap:1rem);
+      width:$full;
+      @include button;
+    }
+  }
+  .sidebar-recents{
+    @include flex(column, flex-start,stretch,$none);
+    width: $full;
+    margin-top: $m2;
+
+    .recents-heading{
+      @include text-grey;
+      padding-left: $p2;
+      margin-bottom: $m2;
+    }
+
+    .sidebar-recents-button{
+      @include button;
+      @include user-padding;
+      padding: $p2;
+      //padding-top:$none;
+      text-align:left;
+    }
+  }
+  .sidebar-profile{
+    width: $full;
+    @include flex(column,$justify:flex-start, $align:flex-start);
+    border-top:1px solid $lightgrey;
+    padding-top:$p1;
+   
+    
+    .sidebar-profile-btn{
+      @include button;
+      @include flex(row,flex-start,flex-start);
+      @include user-padding;
+      width: $full;
+      .sidebar-profile-pic{
+        width:$profile;
+        height:$profile;
+        border-radius: 50%;
+    }
+  }
+    .sidebar-profile-offer-btn{
+      @include button;
+      @include flex;
+      gap:$p2;
+      width:$ninety;
+      margin:0 auto;
+      margin-bottom: $m1;
+      border:1px solid lightgray;
+      @include user-padding;
+      border-radius: $round2;
+    }
+  }
+  
+}

@@ -1,0 +1,118 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.main {
+  @include flex(column, flex-start, stretch, $gap:$none);
+  width: $full;
+  height: 100vh;
+
+  .main-top {
+    @include flex(row, flex-end);
+    padding: $p3 $p1;
+    width: $full;
+
+    .main-top-button {
+      @include button;
+      @include flex(row, center, center, $gap:$gap5);
+      padding: $p0 $p1;
+      font-size: $text1;
+
+      .blue-text{
+        color: $blue;
+        font-weight: $w600;
+      }
+    }
+  }
+
+  .main-chat {
+    @include flex(column, center, center);
+    flex: 1;
+    width: $full;
+    padding: $p0 $p2;
+  }
+
+  .main-empty {
+    @include flex(column, center, center, $gap:$gap2);
+    width: $full;
+    max-width: $input;
+
+    .main-empty-heading {
+      font-weight: $w400;
+      font-size: $text3;
+    }
+  }
+
+  .composer {
+    @include flex(row, flex-start, center, $gap:0.6rem);
+    width: $full;
+    padding: $p2;
+    border: 1px solid lightgray;
+    border-radius: $round3;
+    @include shadow($shadow1);
+
+    .composer-icon-btn {
+      @include button;
+      @include flex(row, center, center, $gap:$none);
+      padding: $p0;
+    }
+
+    .composer-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: $text1;
+      background: transparent;
+
+      &::placeholder {
+        @include text-grey;
+        font-weight: $w400;
+      }
+    }
+
+    .composer-think-btn {
+      @include button;
+      @include flex(row, center, center);
+      @include user-padding;
+      @include text-grey;
+      font-weight: $w400;
+      border-radius: $round2;
+    }
+
+    .composer-send-btn {
+      @include flex(row, center, center, $gap:$none);
+      width: $profile;
+      height: $profile;
+      border-radius: 50%;
+      border: $none;
+      background-color: $blue2;
+      
+      .icon-white {
+        filter: invert(100%);
+      }
+    }
+  }
+
+  .main-suggestions {
+    @include flex(column, flex-start, flex-start, $gap:0.2rem);
+    width: $full;
+
+    .suggestion-button {
+      @include button;
+      @include flex(row, flex-start, center, $gap:0.8rem);
+      @include user-padding;
+      @include text-grey;
+      width: $full;
+      font-weight: $w400;
+    }
+  }
+
+  @include response(mobile) {
+    .main-empty {
+      max-width: $full;
+    }
+    .composer-think-btn span {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <title>ChatGPT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+  <div class="sidebar">
+    <div class="sidebar-scroll">
+
+    <div class="sidebar-top">
+    <h2 class="sidebar-heading">ChatGPT</h2>
+    <div class="sidebar-top-icons">
+    <img src="assets/images/search.svg" class="icon icon-grey head-icon">
+    <img src="assets/images/layout-sidebar.svg" class="icon icon-grey sidebar-icon head-icon">
+    </div>
+    </div>
+
+    <div class="sidebar-mid">
+      <button class="sidebar-button" id="newchat">
+        <img src="assets/images/pencil-plus.svg" class="icon">
+        <span>New Chat</span>
+      </button>
+      <button class="sidebar-button" id="images">
+        <img src="assets/images/photo.svg" class="icon">
+        <span>Images</span>
+      </button>
+      <button class="sidebar-button" id="library">
+        <img src="assets/images/book.svg" class="icon">
+        <span>Library</span>
+      </button>
+      <button class="sidebar-button" id="plugins">
+        <img src="assets/images/plug.svg" class="icon">
+        <span>Plugins</span>
+      </button>
+      <button class="sidebar-button" id="projects">
+        <img src="assets/images/folder.svg" class="icon">
+        <span>Projects</span>
+      </button>
+      <button class="sidebar-button" id="codex">
+        <img src="assets/images/code.svg" class="icon">
+        <span>Codex</span>
+      </button>
+      <button class="sidebar-button" id="more">
+        <img src="assets/images/dots.svg" class="icon">
+        <span>More</span>
+      </button>
+    </div>
+
+    <div class="sidebar-recents">
+      <h3 class="recents-heading">Recents</h3>
+      <button class="sidebar-recents-button"><span class="sidebar-recent-chat">This is JavaScript</span></button>
+      <button class="sidebar-recents-button"><span class="sidebar-recent-chat">Axeno Consulting</span></button>
+      <button class="sidebar-recents-button"><span class="sidebar-recent-chat">Twinkle Twinkle</span></button>
+    </div>
+    </div>
+
+    <div class="sidebar-profile">
+      <button class="sidebar-profile-btn">
+        <img src="assets/images/Media.jpg" class="sidebar-profile-pic">
+        <p class="user-name">Anshuman</p>
+      </button>
+      <button class="sidebar-profile-offer-btn">
+        <img src="assets/images/gift.svg" class="icon gift-icon">
+        Claim Offer
+      </button>
+    </div>
+
+  </div>
+  </header>
+
+  <main class="main">
+  <section class="main-top">
+    <button class="main-top-button">
+      <img src="assets/images/gift.svg" class="icon blue-icon">
+      <span class="blue-text">Claim offer</span>
+    </button>
+    <button class="main-top-button">
+      <img src="assets/images/bubble.svg" class="icon">
+    </button>
+  </section>
+
+  <section class="main-chat">
+    <div class="main-empty">
+      <h1 class="main-empty-heading">Ready when you are.</h1>
+
+      <div class="composer">
+        <button class="composer-icon-btn" id="attach">
+          <img src="assets/images/plus.svg" class="icon">
+        </button>
+        <input type="text" class="composer-input" id="chat-input" placeholder="Ask anything">
+        <button class="composer-think-btn" id="think">
+          <img src="assets/images/brain.svg" class="icon icon-grey">
+          <span>Think</span>
+        </button>
+        <button class="composer-icon-btn" id="mic">
+          <img src="assets/images/microphone.svg" class="icon">
+        </button>
+        <button class="composer-send-btn" id="send">
+          <img src="assets/images/arrow-up.svg" class="icon icon-white">
+        </button>
+      </div>
+
+      <div class="main-suggestions">
+        <button class="suggestion-button" id="create-image">
+          <img src="assets/images/photo.svg" class="icon icon-grey">
+          <span>Create an image</span>
+        </button>
+        <button class="suggestion-button" id="write-edit">
+          <img src="assets/images/pencil.svg" class="icon icon-grey">
+          <span>Write or edit</span>
+        </button>
+        <button class="suggestion-button" id="search-web">
+          <img src="assets/images/world.svg" class="icon icon-grey">
+          <span>Search the web</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
