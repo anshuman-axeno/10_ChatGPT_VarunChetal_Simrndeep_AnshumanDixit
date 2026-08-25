@@ -6,11 +6,12 @@
   position: fixed;
   inset: $none;
   background-color: rgba(0, 0, 0, 0.4);
-  @include flex(row, center, center);
   z-index: 10;
 
   &.open {
     display: flex;
+    @include flex(row, center, center);
+
   }
 
   .modal {

@@ -74,7 +74,7 @@
       padding: $p2;
       border: 1px solid $lightgrey;
       border-radius: $round3;
-      @include shadow($shadow1);
+      //@include shadow($shadow1);
 
       .composer-icon-btn {
         @include button;
@@ -84,6 +84,12 @@
 
       .composer-input {
         flex: 1;
+        resize: none;
+        overflow-y: auto;
+        padding: $p2 $none;
+        line-height: $lh15;
+        min-height: $height20;
+        max-height: 12rem;
         border: $none;
         outline: $none;
         font-family: inherit;
@@ -111,7 +117,13 @@
         height: $tworem;
         border-radius: $half;
         border: $none;
-        background-color: $blue2;
+        background-color: $blue;
+        cursor: pointer;
+
+        &:disabled{
+          background-color: $blue2;
+          cursor: not-allowed;
+        }
 
         .icon-white {
           filter: invert(100%);

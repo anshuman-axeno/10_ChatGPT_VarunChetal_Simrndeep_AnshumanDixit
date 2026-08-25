@@ -15,7 +15,10 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
+  <header class="sidebar-container">
+  <button class="sidebar-open-btn" id="sidebar-open">
+  <img src="assets/images/layout-sidebar.svg" class="icon icon-grey">
+  </button>
   <div class="sidebar">
     <div class="sidebar-scroll">
 
@@ -59,7 +62,7 @@
     </div>
 
     <div class="sidebar-recents">
-      <h3 class="recents-heading">Recents</h3>
+      <!-- <h3 class="recents-heading">Recents</h3> -->
     </div>
     </div>
 
@@ -100,7 +103,7 @@
     <button class="composer-icon-btn" id="attach">
       <img src="assets/images/plus.svg" class="icon">
     </button>
-    <input type="text" class="composer-input" id="chat-input" placeholder="Ask anything">
+    <textarea class="composer-input" id="chat-input" placeholder="Ask anything" rows="1"></textarea>
     <button class="composer-think-btn" id="think">
       <img src="assets/images/brain.svg" class="icon icon-grey">
       <span>Think</span>
@@ -164,7 +167,6 @@
       </div>
     </div>
   </div>
-</div>
 </main>
 
 </body>

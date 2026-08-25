@@ -1,3 +1,9 @@
+
+const sendButton = document.getElementById("send");
+const chatMessages = document.getElementById("chat-messages");
+
+let hasAddedToRecents = false;
+
 function loadConversation(id) {
   const convo = conversations.find(c => c.id === id);
 
@@ -8,7 +14,9 @@ function loadConversation(id) {
 
   convo.messages.forEach(msg => {
     const bubble = document.createElement("div");
-    bubble.className = msg.role === "user" ? "message message-user" : "message message-assistant";
+    bubble.className = msg.role === "user"
+      ? "message message-user"
+      : "message message-assistant";
 
     if (msg.code) {
       const pre = document.createElement("pre");
@@ -25,31 +33,46 @@ function loadConversation(id) {
       const actions = document.createElement("div");
       actions.className = "message-actions";
       actions.innerHTML = `
-        <button class="action-btn copy-btn" ><img src="../assets/images/clipboard.svg" class="icon icon-grey"></button>
+        <button class="action-btn copy-btn"><img src="../assets/images/clipboard.svg" class="icon icon-grey"></button>
         <button class="action-btn like-btn"><img src="../assets/images/thumb-up.svg" class="icon icon-grey"></button>
         <button class="action-btn dislike-btn"><img src="../assets/images/thumb-down.svg" class="icon icon-grey"></button>
         <button class="action-btn regen-btn"><img src="../assets/images/refresh.svg" class="icon icon-grey"></button>
-        <button class="action-btn more-btn" ><img src="../assets/images/dots.svg" class="icon icon-grey"></button>
+        <button class="action-btn more-btn"><img src="../assets/images/dots.svg" class="icon icon-grey"></button>
       `;
+
       chatMessages.appendChild(actions);
 
-      const dislikeBtn=actions.querySelector('.dislike-btn');
+      const dislikeBtn = actions.querySelector(".dislike-btn");
 
       const copyBtn = actions.querySelector(".copy-btn");
       copyBtn.addEventListener("click", () => {
         navigator.clipboard.writeText(bubble.textContent);
-        //alert('Copied to Clipboard');
         copyBtn.classList.add("copied");
-        setTimeout(() => copyBtn.classList.remove("copied"), 2000);
-  });
-      const likeBtn=actions.querySelector('.like-btn');
-      likeBtn.addEventListener('click', ()=>{
-        likeBtn.classList.toggle("liked"); 
+
+        setTimeout(() => {
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      });
+
+      const likeBtn = actions.querySelector(".like-btn");
+
+      likeBtn.addEventListener("click", () => {
+        likeBtn.classList.toggle("liked");
         dislikeBtn.classList.remove("disliked");
       });
-      dislikeBtn.addEventListener('click', ()=>{
-        dislikeBtn.classList.toggle("disliked"); 
+
+      dislikeBtn.addEventListener("click", () => {
+        dislikeBtn.classList.toggle("disliked");
         likeBtn.classList.remove("liked");
+      });
+
+      const regenBtn = actions.querySelector(".regen-btn");
+
+      regenBtn.addEventListener("click", () => {
+        const newReply =
+          mockReplies[Math.floor(Math.random() * mockReplies.length)];
+
+        bubble.textContent = newReply;
       });
     }
   });
@@ -57,11 +80,15 @@ function loadConversation(id) {
 
 document.getElementById("newchat").addEventListener("click", () => {
   const mainChat = document.querySelector(".main-chat");
+
   mainChat.classList.remove("active");
   document.getElementById("chat-messages").innerHTML = "";
   document.getElementById("chat-input").value = "";
+  hasAddedToRecents = false;
 
-  document.getElementById("empty-heading").innerHTML = `<h1 class="main-empty-heading">Ready when you are.</h1>`;
+  document.getElementById("empty-heading").innerHTML =
+    `<h1 class="main-empty-heading">Ready when you are.</h1>`;
+
   document.getElementById("empty-suggestions").style.display = "block";
 });
 
@@ -83,9 +110,106 @@ tempBtn.addEventListener("click", () => {
       <h1 class="main-empty-heading">Temporary chat</h1>
       <p class="temp-subtext">This chat won't appear in history or be used to train our models.</p>
     `;
+
     emptySuggestions.style.display = "none";
   } else {
     emptyHeading.innerHTML = defaultHeadingHTML;
     emptySuggestions.style.display = "block";
   }
 });
+
+const chatInput = document.getElementById("chat-input");
+
+chatInput.addEventListener("input", () => {
+  chatInput.style.height = "auto";
+  chatInput.style.height = chatInput.scrollHeight + "px";
+});
+
+sendButton.disabled = true;
+
+chatInput.addEventListener("input", () => {
+  sendButton.disabled = chatInput.value.trim() === "";
+});
+
+sendButton.addEventListener("click", () => {
+  const text = chatInput.value.trim();
+
+  if (text === "") return;
+
+  document.querySelector(".main-chat").classList.add("active");
+
+  const userBubble = document.createElement("div");
+  userBubble.className = "message message-user";
+  userBubble.textContent = text;
+
+  chatMessages.appendChild(userBubble);
+
+  if (!hasAddedToRecents) {
+    const title = text.split(" ").slice(0, 2).join(" ");
+    addToRecents(title);
+    hasAddedToRecents = true;
+  }
+
+  chatInput.value = "";
+  chatInput.style.height = "auto";
+  sendButton.disabled = true;
+
+  setTimeout(() => {
+    const reply =
+      mockReplies[Math.floor(Math.random() * mockReplies.length)];
+
+    const aiBubble = document.createElement("div");
+    aiBubble.className = "message message-assistant";
+    aiBubble.textContent = reply;
+
+    chatMessages.appendChild(aiBubble);
+
+    const actions = document.createElement("div");
+    actions.className = "message-actions";
+
+    actions.innerHTML = `
+      <button class="action-btn copy-btn"><img src="../assets/images/clipboard.svg" class="icon icon-grey"></button>
+      <button class="action-btn like-btn"><img src="../assets/images/thumb-up.svg" class="icon icon-grey"></button>
+      <button class="action-btn dislike-btn"><img src="../assets/images/thumb-down.svg" class="icon icon-grey"></button>
+      <button class="action-btn regen-btn"><img src="../assets/images/refresh.svg" class="icon icon-grey"></button>
+      <button class="action-btn more-btn"><img src="../assets/images/dots.svg" class="icon icon-grey"></button>
+    `;
+
+    chatMessages.appendChild(actions);
+
+    const copyBtn = actions.querySelector(".copy-btn");
+
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(aiBubble.textContent);
+      copyBtn.classList.add("copied");
+
+      setTimeout(() => {
+        copyBtn.classList.remove("copied");
+      }, 2000);
+    });
+
+    const likeBtn = actions.querySelector(".like-btn");
+    const dislikeBtn = actions.querySelector(".dislike-btn");
+
+    likeBtn.addEventListener("click", () => {
+      likeBtn.classList.toggle("liked");
+      dislikeBtn.classList.remove("disliked");
+    });
+
+    dislikeBtn.addEventListener("click", () => {
+      dislikeBtn.classList.toggle("disliked");
+      likeBtn.classList.remove("liked");
+    });
+  }, 1500);
+});
+
+function addToRecents(title) {
+  const recentsContainer = document.querySelector(".sidebar-recents");
+  const heading = recentsContainer.querySelector(".recents-heading");
+
+  const btn = document.createElement("button");
+  btn.className = "sidebar-recents-button";
+  btn.textContent = title;
+
+  heading.insertAdjacentElement("afterend", btn);
+}

@@ -1,6 +1,35 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 
+.sidebar-container {
+  position: relative;
+  width: $twenty;
+  flex-shrink: $none;
+  transition: width 300ms;
+
+  .sidebar-open-btn {
+    display: none;
+  }
+
+  &.collapsed {
+    width: $none;
+
+    .sidebar {
+      display: none;
+    }
+
+    .sidebar-open-btn {
+      display: flex;
+      position: fixed;
+      top: $p3;
+      left: $p3;
+      z-index: 10;
+      @include button;
+      padding: $p2;
+    }
+  }
+}
+
 .sidebar {
   @include flex(column, flex-start, flex-start);
   font-size: $text1;
@@ -23,6 +52,10 @@
     @include flex(row, space-between);
     padding: $p0 $p1;
     padding-top: $p3;
+    position: sticky;
+    background-color: $light;
+    top: $none;
+    z-index: 2;
     font-size: $text2;
     width: $full;
     margin-bottom: $m2;
@@ -50,6 +83,26 @@
       @include button;
     }
   }
+  .recent-row {
+  @include flex(row, space-between, center);
+  width: $full;
+
+  .sidebar-recents-button {
+    flex: 1;
+  }
+
+  .recent-delete {
+    display: none;
+    @include button;
+    padding: $p1;
+  }
+
+  &:hover .recent-delete {
+    display: flex;
+  }
+}
+
+
   .sidebar-recents{
     @include flex(column, flex-start,stretch,$none);
     width: $full;
@@ -58,7 +111,7 @@
     .recents-heading{
       @include text-grey;
       padding-left: $p2;
-      margin-bottom: $m2;
+      margin: $m1 $none $p1;
     }
 
     .sidebar-recents-button{

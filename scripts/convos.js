@@ -2,6 +2,7 @@ const conversations = [
   {
     id: 1,
     title: "Explain CSS Grid Clearly",
+    group: "Today",
     messages: [
       { role: "user", text: "Can you explain CSS grid?" },
       { role: "assistant", text: "Sure. Grid lets you arrange items into rows and columns using a parent container." },
@@ -18,6 +19,7 @@ const conversations = [
   {
     id: 2,
     title: "Greeting exchange",
+    group: "Today",
     messages: [
       { role: "user", text: "hi" },
       { role: "assistant", text: "Hello! How can I help you today?" },
@@ -30,6 +32,7 @@ const conversations = [
   {
     id: 3,
     title: "JavaScript Closures",
+    group: "Yesterday",
     messages: [
       { role: "user", text: "what is a closure?" },
       { role: "assistant", text: "A closure is a function that remembers variables from where it was created." },
@@ -42,6 +45,7 @@ const conversations = [
   {
     id: 4,
     title: "Trip Planning",
+    group: "Previous 7 days",
     messages: [
       { role: "user", text: "planning a 3 day trip to Manali" },
       { role: "assistant", text: "Great choice. Day 1 can be local sightseeing, Day 2 Solang Valley, Day 3 Rohtang Pass." },
@@ -54,6 +58,7 @@ const conversations = [
   {
     id: 5,
     title: "Resume Tips",
+    group: "Older",
     messages: [
       { role: "user", text: "how do I make my resume stand out?" },
       { role: "assistant", text: "Focus on measurable achievements instead of just listing responsibilities." },
@@ -63,4 +68,15 @@ const conversations = [
       { role: "assistant", text: "Stick to one font, consistent spacing, and clear section headings." }
     ]
   }
+];
+
+const mockReplies = [
+  "That's a great question. Let me think about that for a second.",
+  "Sure, here's what I think about that.",
+  "Interesting — I hadn't considered it that way.",
+  "Got it. Here's a simple way to look at it.",
+  "That depends on a few things, but generally speaking, yes.",
+  "Good point. Let's break it down.",
+  "Sure thing, here's a quick explanation.",
+  "That's doable. Here's how I'd approach it."
 ];
