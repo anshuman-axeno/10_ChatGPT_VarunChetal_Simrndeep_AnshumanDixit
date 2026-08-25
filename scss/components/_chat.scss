@@ -29,56 +29,48 @@
   }
 
   .main-chat {
-    @include flex(column, center, center, $gap:$gap2);
+    @include flex(column, center, stretch, $gap:$gap2);
     flex: 1;
     width: $full;
+    min-height: $none;
     padding: $p0 $p2;
     overflow: hidden;
 
     .chat-messages {
-    display: none;
-    flex-direction: column;
-    gap: $p2;
-    flex: 1;
-    width: $full;
-    max-width: $input;
-    margin: $none auto;
-    overflow-y: auto;
-    padding: $p2 $none;
-  }
-
-    .main-empty {
-      @include flex(column, center, center, $gap:$gap2);
+      display: none;
+      order: 1;
+      flex-direction: column;
+      gap: $p2;
       flex: 1;
+      min-height: $none;
+      width: $full;
+      //max-width: $input;
+      margin: $none ;
+      overflow-y: auto;
+      padding: $p2 calc((100% - $input) / 2);
+      
+    }
+
+    .empty-heading {
+      order: 1;
       width: $full;
       max-width: $input;
       margin: $none auto;
+      text-align: center;
 
       .main-empty-heading {
         font-weight: $w400;
         font-size: $text3;
       }
-
-      .main-suggestions {
-        @include flex(column, flex-start, flex-start, $gap:$gap5);
-        width: $full;
-
-        .suggestion-button {
-          @include button;
-          @include flex(row, flex-start, center, $gap:$gap1);
-          @include user-padding;
-          @include text-grey;
-          width: $full;
-          font-weight: $w400;
-        }
-      }
     }
 
     .composer {
+      order: 2;
+      flex-shrink: $none;
       @include flex(row, flex-start, center, $gap:$gap1);
       width: $full;
       max-width: $input;
-      margin: $none auto;
+      margin: $m2 auto;
       padding: $p2;
       border: 1px solid $lightgrey;
       border-radius: $round3;
@@ -126,23 +118,44 @@
         }
       }
     }
-      &.active {
-    justify-content: flex-start;
-    align-items: stretch;
 
-    .chat-messages {
-      display: flex;
-      flex: 1;
+    .empty-suggestions {
+      order: 3;
+      width: $full;
+      max-width: $input;
+      margin: $none auto;
+
+      .main-suggestions {
+        @include flex(column, flex-start, flex-start, $gap:$gap5);
+        width: $full;
+
+        .suggestion-button {
+          @include button;
+          @include flex(row, flex-start, center, $gap:$gap1);
+          @include user-padding;
+          @include text-grey;
+          width: $full;
+          font-weight: $w400;
+        }
+      }
     }
 
-    .main-empty {
-      display: none;
+    &.active {
+      justify-content: flex-start;
+
+      .chat-messages {
+        display: flex;
+      }
+
+      .empty-heading,
+      .empty-suggestions {
+        display: none;
+      }
     }
-  }
   }
 
   @include response(mobile) {
-    .main-empty {
+    .main-empty-heading {
       max-width: $full;
     }
     .composer-think-btn span {
@@ -153,8 +166,8 @@
 
 .message {
   padding: $p2 $p3;
-  border-radius: $round1;
-  max-width: 70%;
+  border-radius: $round2;
+  max-width: $msgwidth;
   font-size: $text1;
   line-height: 1.5;
 }
@@ -175,5 +188,16 @@
     font-family: monospace;
     white-space: pre-wrap;
     margin-top: $p2;
+  }
+}
+
+.message-actions {
+  @include flex(row, flex-start, center, $gap:$gap5);
+  margin-top: $p1;
+  margin-bottom: $gap2;
+
+  .action-btn {
+    @include button;
+    padding: $p1;
   }
 }

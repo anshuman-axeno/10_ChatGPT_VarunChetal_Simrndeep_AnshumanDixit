@@ -81,34 +81,20 @@
       <img src="assets/images/gift.svg" class="icon blue-icon">
       <span class="blue-text">Claim offer</span>
     </button>
-    <button class="main-top-button">
-      <img src="assets/images/bubble.svg" class="icon">
-    </button>
+
+    <button class="main-top-button temporary" id="temp-toggle">
+    <img src="assets/images/bubble.svg" class="icon">
+  </button>
   </section>
 
   <section class="main-chat">
   <div class="chat-messages" id="chat-messages"></div>
 
-  <div class="main-empty" id="main-empty">
+  <div class="empty-heading" id="empty-heading">
     <h1 class="main-empty-heading">Ready when you are.</h1>
-
-    <div class="main-suggestions">
-      <button class="suggestion-button" id="create-image">
-        <img src="assets/images/photo.svg" class="icon icon-grey">
-        <span>Create an image</span>
-      </button>
-      <button class="suggestion-button" id="write-edit">
-        <img src="assets/images/pencil.svg" class="icon icon-grey">
-        <span>Write or edit</span>
-      </button>
-      <button class="suggestion-button" id="search-web">
-        <img src="assets/images/world.svg" class="icon icon-grey">
-        <span>Search the web</span>
-      </button>
-    </div>
   </div>
 
-  <div class="composer">
+  <div class="composer" id="composer">
     <button class="composer-icon-btn" id="attach">
       <img src="assets/images/plus.svg" class="icon">
     </button>
@@ -123,6 +109,26 @@
     <button class="composer-send-btn" id="send">
       <img src="assets/images/arrow-up.svg" class="icon icon-white">
     </button>
+  </div>
+
+  <div class="empty-suggestions" id="empty-suggestions">
+  <div class="main-suggestions">
+      <button class="suggestion-button" id="create-image">
+        <img src="assets/images/photo.svg" class="icon icon-grey">
+        <span>Create an image</span>
+      </button>
+      <button class="suggestion-button" id="write-edit">
+        <img src="assets/images/pencil.svg" class="icon icon-grey">
+        <span>Write or edit</span>
+      </button>
+      <button class="suggestion-button" id="search-web">
+        <img src="assets/images/world.svg" class="icon icon-grey">
+        <span>Search the web</span>
+      </button>
+  </div>
+  </div>
+
+  
   </div>
 </section>
 </main>
