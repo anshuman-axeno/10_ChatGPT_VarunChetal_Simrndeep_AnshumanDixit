@@ -199,5 +199,14 @@
   .action-btn {
     @include button;
     padding: $p1;
-  }
+
+    &.liked img,
+    &.copied img {
+      filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%); 
+    }
+
+    &.disliked img {
+      filter: invert(20%) sepia(90%) saturate(3000%) hue-rotate(340deg); 
+    }
 }
+  }

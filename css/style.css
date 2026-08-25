@@ -469,4 +469,10 @@ body .icon-grey {
 }
 .message-actions .action-btn {
   padding: 0.25rem;
+}
+.message-actions .action-btn.liked img, .message-actions .action-btn.copied img {
+  filter: invert(36%) sepia(74%) saturate(1934%) hue-rotate(206deg) brightness(101%) contrast(101%);
+}
+.message-actions .action-btn.disliked img {
+  filter: invert(20%) sepia(90%) saturate(3000%) hue-rotate(340deg);
 }/*# sourceMappingURL=style.css.map */
