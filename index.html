@@ -10,6 +10,8 @@
   <script src="scripts/convos.js" defer></script>
   <script src="scripts/sidebar.js" defer></script>
   <script src="scripts/chat.js" defer></script>
+  <script src="scripts/modal.js" defer></script>  
+  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -66,7 +68,7 @@
         <img src="assets/images/Media.jpg" class="sidebar-profile-pic">
         <p class="user-name">Anshuman</p>
       </button>
-      <button class="sidebar-profile-offer-btn">
+      <button class="sidebar-profile-offer-btn claim-offer">
         <img src="assets/images/gift.svg" class="icon gift-icon">
         Claim Offer
       </button>
@@ -77,9 +79,9 @@
 
   <main class="main">
   <section class="main-top">
-    <button class="main-top-button">
+    <button class="main-top-button claim-offer">
       <img src="assets/images/gift.svg" class="icon blue-icon">
-      <span class="blue-text">Claim offer</span>
+      <span class="blue-text ">Claim offer</span>
     </button>
 
     <button class="main-top-button temporary" id="temp-toggle">
@@ -128,9 +130,41 @@
   </div>
   </div>
 
-  
   </div>
 </section>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">
+      <img src="assets/images/x.svg" class="icon">
+    </button>
+
+    <h2 class="modal-title">Upgrade your plan</h2>
+
+    <div class="plan-list">
+      <div class="plan-card plan-card--selected">
+      <h3 class="plan-name">Free</h3>
+      <p class="plan-price">₹0</p>
+      <p class="plan-desc">Basic access to get started.</p>
+      <button class="plan-btn" disabled>Current plan</button>
+      </div>
+
+      <div class="plan-card">
+      <h3 class="plan-name">Go</h3>
+      <p class="plan-price">₹399<span>/month</span></p>
+      <p class="plan-desc">More usage and faster responses.</p>
+      <button class="plan-btn plan-btn--highlight">GET FOR FREE</button>
+      </div>
+
+      <div class="plan-card">
+      <h3 class="plan-name">Plus</h3>
+      <p class="plan-price">₹1,999<span>/month</span></p>
+      <p class="plan-desc">Full access to advanced features.</p>
+      <button class="plan-btn">Upgrade</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>
 
 </body>

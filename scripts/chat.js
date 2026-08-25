@@ -40,11 +40,10 @@ function loadConversation(id) {
         navigator.clipboard.writeText(bubble.textContent);
         //alert('Copied to Clipboard');
         copyBtn.classList.add("copied");
-        setTimeout(() => copyBtn.classList.remove("copied"), 1000);
+        setTimeout(() => copyBtn.classList.remove("copied"), 2000);
   });
       const likeBtn=actions.querySelector('.like-btn');
       likeBtn.addEventListener('click', ()=>{
-        //alert('Message Liked. You will get similar replies');
         likeBtn.classList.toggle("liked"); 
         dislikeBtn.classList.remove("disliked");
       });

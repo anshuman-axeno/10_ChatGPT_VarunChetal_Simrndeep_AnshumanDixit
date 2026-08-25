@@ -431,6 +431,7 @@ body .icon-grey {
 .message-user {
   align-self: flex-end;
   background-color: #e9f3fd;
+  padding: 0.5rem 0.75rem;
 }
 
 .message-assistant {
@@ -475,4 +476,131 @@ body .icon-grey {
 }
 .message-actions .action-btn.disliked img {
   filter: invert(20%) sepia(90%) saturate(3000%) hue-rotate(340deg);
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+}
+.modal-overlay.open {
+  display: flex;
+}
+.modal-overlay .modal {
+  position: relative;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 70%;
+  box-shadow: 0 0 1rem 2px rgba(0, 0, 0, 0.25);
+}
+.modal-overlay .modal .modal-close {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: none;
+  font-family: inherit;
+}
+.modal-overlay .modal .modal-close:hover {
+  background-color: #efefef;
+  transition: all;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+.modal-overlay .modal .modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+}
+.modal-overlay .modal .modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.modal-overlay .modal .plan-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
+}
+.modal-overlay .modal .plan-list .plan-card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1;
+  border: 1px solid lightgrey;
+  border-radius: 1.5rem;
+  padding: 0.75rem;
+}
+.modal-overlay .modal .plan-list .plan-card--selected {
+  border-color: #4a7ae0;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: grey;
+  font-size: 14px;
+  font-weight: 600;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-desc {
+  color: grey;
+  font-size: 14px;
+  font-weight: 600;
+  font-weight: 400;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-btn {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: none;
+  font-family: inherit;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-btn:hover {
+  background-color: #efefef;
+  transition: all;
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-btn {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.5rem;
+  border: 1px solid lightgrey;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-btn--highlight {
+  background-color: #4a7ae0;
+  color: white;
+  border: none;
+}
+.modal-overlay .modal .plan-list .plan-card .plan-btn:disabled {
+  color: grey;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+@media (max-width: 480px) {
+  .modal-overlay .plan-list {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.css.map */

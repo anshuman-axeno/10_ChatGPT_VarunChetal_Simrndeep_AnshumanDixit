@@ -1,0 +1,104 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: $none;
+  background-color: rgba(0, 0, 0, 0.4);
+  @include flex(row, center, center);
+  z-index: 10;
+
+  &.open {
+    display: flex;
+  }
+
+  .modal {
+    position: relative;
+    background-color: $light;
+    border-radius: $round3;
+    padding: $gap3;
+    width: $full;
+    max-width: $input;
+    @include shadow($shadow1);
+
+    .modal-close {
+      @include button;
+      position: absolute;
+      top: $p2;
+      right: $p2;
+      padding: $p1;
+    }
+
+    .modal-title {
+      font-size: $text3;
+      font-weight: $w600;
+      text-align: center;
+      margin-bottom: $gap2;
+    }
+
+    .plan-list {
+      @include flex(row, center, stretch, $gap:$gap1);
+
+      .plan-card {
+        @include flex(column, flex-start, flex-start, $gap:$gap5);
+        flex: 1;
+        border: 1px solid $lightgrey;
+        border-radius: $round2;
+        padding: $p3;
+
+        &--selected {
+          border-color: $blue;
+        }
+
+        .plan-name {
+          font-size: $text2;
+          font-weight: $w600;
+        }
+
+        .plan-price {
+          font-size: $text3;
+          font-weight: $w600;
+
+          span {
+            font-size: $text1;
+            font-weight: $w400;
+            @include text-grey;
+          }
+        }
+
+        .plan-desc {
+          @include text-grey;
+          font-weight: $w400;
+        }
+
+        .plan-btn {
+          @include button;
+          width: $full;
+          margin-top: auto;
+          padding: $p2;
+          border: 1px solid $lightgrey;
+          border-radius: $round2;
+          text-align: center;
+
+          &--highlight {
+            background-color: $blue;
+            color: $light;
+            border: none;
+          }
+
+          &:disabled {
+            @include text-grey;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+
+  @include response(mobile) {
+    .plan-list {
+      flex-direction: column;
+    }
+  }
+}

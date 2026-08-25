@@ -3,11 +3,11 @@ const conversations = [
     id: 1,
     title: "Explain CSS Grid Clearly",
     messages: [
-      { role: "user", text: "can you explain CSS grid?" },
+      { role: "user", text: "Can you explain CSS grid?" },
       { role: "assistant", text: "Sure. Grid lets you arrange items into rows and columns using a parent container." },
-      { role: "user", text: "how is it different from flexbox?" },
+      { role: "user", text: "How is it different from flexbox?" },
       { role: "assistant", text: "Flexbox is one-dimensional (row or column). Grid is two-dimensional (rows and columns together)." },
-      { role: "user", text: "explain the stacked again, in easy words" },
+      { role: "user", text: "Explain the stacked again, in easy words" },
       {
         role: "assistant",
         text: "Here's how cards normally sit side by side:",
