@@ -167,12 +167,27 @@
   }
 
   @include response(mobile) {
-    .main-empty-heading {
-      max-width: $full;
-    }
-    .composer-think-btn span {
-      display: none;
-    }
+  .main-empty-heading {
+    max-width: $full;
+  }
+  .composer-think-btn span {
+    display: none;
+  }
+
+  .empty-heading,
+  .composer,
+  .empty-suggestions,
+  .chat-messages {
+    max-width: $full;
+  }
+
+  .composer {
+    padding: $p1;
+  }
+
+  .message {
+    max-width: 85%;
+  }
   }
 }
 

@@ -58,6 +58,56 @@ body .icon-grey {
 .sidebar-container.collapsed .sidebar-open-btn {
   padding: 0.5rem;
 }
+@media (max-width: 480px) {
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 20;
+    width: 0;
+  }
+  .sidebar-container .sidebar {
+    width: 80vw;
+    max-width: 20rem;
+  }
+  .sidebar-container .sidebar-open-btn {
+    display: flex;
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 21;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    border: none;
+    font-family: inherit;
+  }
+  .sidebar-container .sidebar-open-btn:hover {
+    background-color: #efefef;
+    transition: all;
+    transition-duration: 300ms;
+    cursor: pointer;
+  }
+  .sidebar-container .sidebar-open-btn {
+    padding: 0.5rem;
+  }
+  .sidebar-container.collapsed {
+    width: 0;
+  }
+  .sidebar-container.collapsed .sidebar {
+    display: none;
+  }
+  .sidebar-container:not(.collapsed) {
+    width: 100%;
+  }
+  .sidebar-container:not(.collapsed)::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+  }
+}
 
 .sidebar {
   display: flex;
@@ -69,6 +119,7 @@ body .icon-grey {
   padding-left: 0.75rem;
   width: 100%;
   height: 100vh;
+  background-color: white;
 }
 .sidebar .icon {
   transform: scale(90%);
@@ -107,6 +158,30 @@ body .icon-grey {
 }
 .sidebar .sidebar-top .sidebar-icon {
   padding-left: 0.5rem;
+}
+.sidebar .sidebar-search {
+  display: none;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+}
+.sidebar .sidebar-search.open {
+  display: block;
+}
+.sidebar .sidebar-search .sidebar-search-input {
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 14px;
+  outline: 0;
+}
+.sidebar .no-results {
+  color: grey;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0.5rem;
+  text-align: center;
 }
 .sidebar .sidebar-mid {
   display: flex;
@@ -498,6 +573,18 @@ body .icon-grey {
   .main .composer-think-btn span {
     display: none;
   }
+  .main .empty-heading,
+  .main .composer,
+  .main .empty-suggestions,
+  .main .chat-messages {
+    max-width: 100%;
+  }
+  .main .composer {
+    padding: 0.25rem;
+  }
+  .main .message {
+    max-width: 85%;
+  }
 }
 
 .message {
@@ -682,5 +769,9 @@ body .icon-grey {
 @media (max-width: 480px) {
   .modal-overlay .plan-list {
     flex-direction: column;
+  }
+  .modal-overlay .modal {
+    max-width: 100%;
+    margin: 0.5rem;
   }
 }/*# sourceMappingURL=style.css.map */

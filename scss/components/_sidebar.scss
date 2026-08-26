@@ -28,6 +28,50 @@
       padding: $p2;
     }
   }
+    @include response(mobile) {
+    position: fixed;
+    top: $none;
+    left: $none;
+    height: 100vh;
+    z-index: 20;
+    width: $none; 
+
+    .sidebar {
+      width: 80vw; 
+      max-width: 20rem;
+      // box-shadow: 0 $none 1rem rgba(0,0,0,0.2);
+    }
+
+    .sidebar-open-btn {
+      display: flex;
+      position: fixed;
+      top: $p3;
+      left: $p3;
+      z-index: 21;
+      @include button;
+      padding: $p2;
+    }
+
+    &.collapsed {
+      width: $none;
+
+      .sidebar {
+        display: none;
+      }
+    }
+
+    &:not(.collapsed) {
+      width: $full;
+
+      &::after {
+        content: "";
+        position: fixed;
+        inset: $none;
+        background-color: rgba(0,0,0,0.4);
+        z-index: -1;
+      }
+    }
+  }
 }
 
 .sidebar {
@@ -36,6 +80,7 @@
   padding-left: $p3;
   width: $full;
   height: 100vh;
+  background-color: $light;
   .icon{
     transform: scale($ninety);
   }
@@ -71,6 +116,31 @@
       padding-left: $p2;
     }
 
+  }
+  .sidebar-search {
+  display: none;
+  padding: $p1 $p2;
+  width: $full;
+
+  &.open {
+    display: block;
+  }
+
+  .sidebar-search-input {
+    width: $full;
+    border: 1px solid $lightgrey;
+    border-radius: $round0;
+    padding: $p2;
+    font-family: inherit;
+    font-size: $text1;
+    outline: $none;
+  }
+}
+
+  .no-results {
+    @include text-grey;
+    padding: $p2;
+    text-align: center;
   }
   .sidebar-mid {
     @include flex(column, flex-start, flex-start, $gap:$none);

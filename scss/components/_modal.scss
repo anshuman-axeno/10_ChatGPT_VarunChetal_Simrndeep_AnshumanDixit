@@ -98,8 +98,13 @@
   }
 
   @include response(mobile) {
-    .plan-list {
-      flex-direction: column;
-    }
+  .plan-list {
+    flex-direction: column;
   }
+
+  .modal {
+    max-width: $full;
+    margin: $p2;
+  }
+}
 }
